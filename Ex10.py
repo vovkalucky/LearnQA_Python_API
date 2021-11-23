@@ -8,9 +8,9 @@
 # Внимание, чтобы pytest не игнорировал команду ввода с клавиатуры, запускать тест нужно с ключиком "-s": python -m pytest -s my_test.py
 
 class TestPhrase:
-    def length_of_phrase(self):
+    def test_length_of_phrase(self):
         phrase = input("Set a phrase: ")
         assert len(phrase) < 15, 'Length of phrase >= 15'
-    def length_of_phrase2(self):
+    def test_length_of_phrase2(self):
         phrase = input("Set a phrase: ")
         assert len(phrase) == 15, 'Length of phrase != 15'
