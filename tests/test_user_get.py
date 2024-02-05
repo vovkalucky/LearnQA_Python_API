@@ -1,15 +1,19 @@
 from lib.base_case import BaseCase
 from lib.assertions import Assertions
 from lib.my_requests import MyRequests
+import allure
 
-
+@allure.feature('Check get user')
 class TestUserGet(BaseCase):
+    @allure.title('Check get user details not auth')
     def test_get_user_details_not_auth(self):
         response = MyRequests.get('/user/2')
         Assertions.assert_json_has_key(response, 'username')
         Assertions.assert_json_has_not_key(response, 'email')
         Assertions.assert_json_has_not_key(response, 'firstName')
         Assertions.assert_json_has_not_key(response, 'lastName')
+
+    @allure.title('Check get user details auth as same user')
     def test_get_user_details_auth_as_same_user(self):
         data = {
             'email': 'vinkotov@example.com',

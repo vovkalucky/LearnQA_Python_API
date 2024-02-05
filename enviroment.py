@@ -1,18 +1,17 @@
 import os
 
-from openshot_qt.windows import export
-
-#Установка значения переменной окружения в линукс и ее вывод
+#Установка значения переменной окружения в Linux и ее вывод
 #export ENV="prod"
 #echo $ENV
 
+
 class Environment:
-    DEV ='dev'
-    PROD ='prod'
+    DEV = 'dev'
+    PROD = 'prod'
 
     URLS = {
-        DEV: 'https://playground.learnqa.ru/ajax/api_dev/',
-        PROD: 'https://playground.learnqa.ru/ajax/api/'
+        DEV: 'https://playground.learnqa.ru/api_dev',
+        PROD: 'https://playground.learnqa.ru/api'
     }
 
     def __init__(self):
@@ -26,5 +25,6 @@ class Environment:
             return self.URLS[self.env]
         else:
             raise Exception(f"Unknown value of ENV variable {self.env}")
+
 
 ENV_OBJECT = Environment()
