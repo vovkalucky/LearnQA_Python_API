@@ -113,13 +113,12 @@ jobs:
         run: pytest --alluredir=allure_results
         continue-on-error: true
 
-#      - name: Store allure allure_results
-#        uses: actions/upload-artifact@v3 #сохраняем свежий отчет allure
-#        with:
-#          name: allure-allure_results
-#          path:
-#            allure-allure_results
-#          retention-days: 7
+      - name: Store allure allure_results
+        uses: actions/upload-artifact@v3 #сохраняем свежий отчет allure
+        with:
+          name: allure_results
+          path: allure_results
+          retention-days: 7
 
 #  generate-report:
 #    runs-on: ubuntu-latest
