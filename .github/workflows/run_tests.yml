@@ -90,27 +90,22 @@ jobs:
 
       - name: Run test_user_auth.py
         if: "github.event.inputs.deployment_target == 'test_user_auth.py'"
-        run: pytest tests/test_user_auth.py
+        run: pytest tests/test_user_auth.py --alluredir=allure_results
         continue-on-error: true
 
       - name: Run test_user_edit.py
         if: "github.event.inputs.deployment_target == 'test_user_edit.py'"
-        run: pytest tests/test_user_edit.py
+        run: pytest tests/test_user_edit.py --alluredir=allure_results
         continue-on-error: true
 
       - name: Run test_user_get.py
         if: "github.event.inputs.deployment_target == 'test_user_get.py'"
-        run: pytest tests/test_user_get.py
+        run: pytest tests/test_user_get.py --alluredir=allure_results
         continue-on-error: true
 
       - name: Run test_user_register.py
         if: "github.event.inputs.deployment_target == 'test_user_register.py'"
-        run: pytest tests/test_user_register.py::TestAlertsFrameWindow::TestBrowserWinPage::test_new_tab --alluredir=llure_results
-        continue-on-error: true
-
-      - name: Run widget_test.py
-        if: "github.event.inputs.deployment_target == 'widget_test.py'"
-        run: pytest tests/widget_test.py --alluredir=allure_results
+        run: pytest tests/test_user_register.py --alluredir=allure_results
         continue-on-error: true
 
       - name: Run all tests
