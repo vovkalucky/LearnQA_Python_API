@@ -3,6 +3,7 @@ from lib.assertions import Assertions
 from lib.my_requests import MyRequests
 import allure
 
+
 @allure.feature('Check user register')
 class TestUserRegister(BaseCase):
     @allure.title('Check create user')
