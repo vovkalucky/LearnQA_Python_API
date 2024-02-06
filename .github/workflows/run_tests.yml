@@ -104,7 +104,7 @@ jobs:
         continue-on-error: true
 
       - name: Run test_user_register.py
-        if: "github.event.inputs.deployment_target == 'test_user_register.py"
+        if: "github.event.inputs.deployment_target == 'test_user_register.py'"
         run: pytest tests/test_user_register.py::TestAlertsFrameWindow::TestBrowserWinPage::test_new_tab --alluredir=llure_results
         continue-on-error: true
 
