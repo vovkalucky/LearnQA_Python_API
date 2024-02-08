@@ -37,8 +37,6 @@ class TestUserEdit(BaseCase):
                                  cookies={'auth_sid': auth_sid},
                                  data={
                                      "firstName": new_name
-                                     #"email": "dsff@ddsfddsfd.ru",
-                                     #"password": "qwerty"
                                  }
                                        )
         Assertions.assert_code_status(response_edit, 200)

@@ -9,6 +9,7 @@ class TestUserRegister(BaseCase):
     @allure.title('Check create user')
     def test_create_user_successfully(self):
         data = self.prepare_registration_data()
+        print(data)
         response = MyRequests.post('/user/', data=data)
         Assertions.assert_code_status(response, 200)
         Assertions.assert_json_has_key(response, "id")
