@@ -66,6 +66,7 @@ jobs:
 #          path:
 #            allure-allure_results
 #          retention-days: 7
+#-------------
   test:
     runs-on: ubuntu-latest
     #needs: download-history #тесты запустятся после джобы скачивания истории
