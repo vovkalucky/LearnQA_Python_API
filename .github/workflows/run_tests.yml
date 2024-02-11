@@ -133,9 +133,7 @@ jobs:
           retention-days: 7
       - name: send notification in Telegram
         run: |
-          curl --location "https://api.telegram.org/bot${{TOKEN_QA}}/sendMessage" \
-         --header "Content-Type: application/json" \
-         --data '{"chat_id": 1873052013, "text": "Hi"}'
+          curl --location "https://api.telegram.org/bot${{ secrets.TOKEN_QA }}/sendMessage" --header "Content-Type: application/json" --data '{"chat_id": 1873052013, "text": "Hi"}'
 
   generate-report:
     runs-on: ubuntu-latest
