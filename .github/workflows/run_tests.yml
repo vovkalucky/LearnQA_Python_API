@@ -124,7 +124,7 @@ jobs:
         run: pytest --alluredir=allure_results
         continue-on-error: true
 
-      - name: Store allure allure_results
+      - name: Store allure_results
         uses: actions/upload-artifact@v3 #сохраняем свежий отчет allure
         with:
           name: allure_results
@@ -139,7 +139,7 @@ jobs:
 
 #  generate-report:
 #    runs-on: ubuntu-latest
-#    needs: test #job generate-report запустится после отработки job tests
+#    needs: test #job generate-report запустится после отработки job test
 #    name: Generate report
 #    steps:
 #      - uses: actions/setup-java@v3
