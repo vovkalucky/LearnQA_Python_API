@@ -131,10 +131,14 @@ jobs:
           name: allure_results
           path: allure_results
           retention-days: 7
-      - name: send notification in Telegram
+      - name: send notification in Telegram (success)
+        if: needs.test.outputs.good != 'failure' && needs.test.outputs.bad != 'failure' && needs.test.outputs.all != 'failure'
         run: |
-          curl --location "https://api.telegram.org/bot${{ secrets.TOKEN_QA }}/sendMessage" --header "Content-Type: application/json" --data '{"chat_id": 1873052013, "text": "Hi"}'
-
+          curl --location "https://api.telegram.org/bot${{ secrets.TOKEN_QA }}/sendMessage" --header "Content-Type: application/json" --data '{"chat_id": 1873052013, "text": "Tests passed. Report: https://vovkalucky.github.io/LearnQA_Python_API/"}'
+      - name: send notification in Telegram  (failure)
+        if: needs.test.outputs.good == 'failure' || needs.test.outputs.bad == 'failure' || needs.test.outputs.all == 'failure'
+        run: |
+          curl --location 'https://api.telegram.org/bot${{ secrets.TG }}/sendMessage' --header 'Content-Type: application/json' --data '{"chat_id": 1873052013, "text": "Tests FAILED. Report: https://vovkalucky.github.io/LearnQA_Python_API/"}'
   generate-report:
     runs-on: ubuntu-latest
     needs: test #job generate-report запустится после отработки job test
